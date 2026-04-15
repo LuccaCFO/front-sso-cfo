@@ -4,6 +4,7 @@ import { ForgotPasswordForm } from '../../features/auth/components/forgotPasswor
 import { Header } from '../../features/auth/components/Header'
 import { LoginForm } from '../../features/auth/components/LoginForm'
 import { SecondaryActions } from '../../features/auth/components/SecondaryActions'
+import padlockSVG from "../../../public/padlock.svg"
 
 export function LoginPage() {
   const [showForgotPassword, setShowForgotPassword] = useState(false)
@@ -19,7 +20,7 @@ export function LoginPage() {
         <section className="auth-card" aria-label="Area de autenticacao">
         <div className="auth-nav" aria-label="Cabecalho do formulario">
           <div className="auth-nav-icon" aria-hidden="true">
-        🔒
+          <img src={padlockSVG} />
           </div>
           <h1 className="auth-nav-title">Acesso ao Sistema</h1>
           <p className="auth-nav-subtitle">{subtitle}</p>
