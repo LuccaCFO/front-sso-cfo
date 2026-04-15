@@ -1,14 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { login } from '../services/authService'
-import { loginSchema, type LoginFormData } from '../schemas/login.schema'
+import { changePasswordEmailService } from '../services/changePasswordEmailService'
+import { forgotPasswordSchema, type ForgotPasswordData } from '../schemas/forgotPassword.schema'
 
-type LoginFormProps = {
-  onForgotPassword: () => void
+type ForgotPasswordFormProps = {
+  onBackToLogin: () => void
 }
 
-export function LoginForm({ onForgotPassword }: LoginFormProps) {
+export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
   const [serverError, setServerError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
@@ -16,23 +16,22 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<ForgotPasswordData>({
+    resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
       email: '',
-      password: '',
     },
   })
 
-  async function onSubmit(values: LoginFormData) {
+  async function onSubmit(values: ForgotPasswordData) {
     setServerError(null)
     setSuccessMessage(null)
 
     try {
-      const response = await login(values)
-      setSuccessMessage(`Login realizado com sucesso. Bem-vindo, ${response.userName}.`)
+      const response = await changePasswordEmailService(values)
+      setSuccessMessage(`E-mail de recuperacao enviado com sucesso para ${values.email}. Token: ${response.token}.`)
     } catch {
-      setServerError('Nao foi possivel realizar o login. Tente novamente.')
+      setServerError('Nao foi possivel enviar o e-mail. Tente novamente.')
     }
   }
 
@@ -57,30 +56,6 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
         ) : null}
       </div>
 
-      <div className="grid gap-1.5">
-        <div className="flex items-center justify-between">
-          <label htmlFor="password" className="auth-label">
-            Senha
-          </label>
-          <button type="button" className="auth-link" onClick={onForgotPassword}>
-            Esqueci minha senha
-          </button>
-        </div>
-        <input
-          id="password"
-          type="password"
-          autoComplete="current-password"
-          placeholder="Digite sua senha"
-          className="auth-input"
-          {...register('password')}
-        />
-        {errors.password ? (
-          <p className="text-sm text-red-700" role="alert">
-            {errors.password.message}
-          </p>
-        ) : null}
-      </div>
-
       {serverError ? (
         <p className="text-sm text-red-700" role="alert">
           {serverError}
@@ -94,7 +69,11 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
         disabled={isSubmitting}
         className="auth-submit"
       >
-        {isSubmitting ? 'Entrando...' : 'Entrar'}
+        {isSubmitting ? 'Enviando...' : 'Enviar recuperacao'}
+      </button>
+
+      <button type="button" className="auth-link justify-self-end" onClick={onBackToLogin}>
+        Voltar para login
       </button>
     </form>
   )
