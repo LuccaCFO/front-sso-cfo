@@ -38,7 +38,10 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
   return (
     <form className="grid gap-4" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="grid gap-1.5">
-        <label htmlFor="email" className="auth-label">
+        <label
+          htmlFor="email"
+          className="text-[11px] font-semibold tracking-wide text-slate-600 uppercase"
+        >
           E-mail
         </label>
         <input
@@ -46,7 +49,7 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
           type="email"
           autoComplete="email"
           placeholder="Digite seu e-mail"
-          className="auth-input"
+          className="mt-1 w-full rounded-lg border border-cfo-border bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary focus:ring-2 focus:ring-[#f6d8da]"
           {...register('email')}
         />
         {errors.email ? (
@@ -67,12 +70,16 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="auth-submit"
+        className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cfo-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? 'Enviando...' : 'Enviar recuperacao'}
       </button>
 
-      <button type="button" className="auth-link justify-self-end" onClick={onBackToLogin}>
+      <button
+        type="button"
+        className="justify-self-end text-xs font-medium text-cfo-primary hover:underline"
+        onClick={onBackToLogin}
+      >
         Voltar para login
       </button>
     </form>

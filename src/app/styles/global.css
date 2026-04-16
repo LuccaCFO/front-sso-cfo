@@ -3,9 +3,15 @@
 @theme {
   --color-cfo-primary: #9a1417;
   --color-cfo-primary-dark: #5d0a0c;
-  --color-cfo-header: #f1ebeb;
   --color-cfo-border: #e5e7eb;
   --color-cfo-muted: #6b7280;
+}
+
+@layer utilities {
+  .bg-red-gradient {
+    background: -webkit-linear-gradient(to left, #ffffff, #cda0a3, #9a1417);
+    background: linear-gradient(135deg, #9A1417 0%, #b52528 25%, #CDA0A3 60%, #f0e0e1 80%, #ffffff 100%);
+  }
 }
 
 @layer base {
@@ -18,125 +24,30 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
   button:not(:disabled),
   a,
   [role='button'] {
     cursor: pointer;
-  }
-}
-
-@layer components {
-  .auth-page {
-    @apply flex min-h-screen flex-col bg-[#fdfdfe];
-  }
-
-  .auth-header-top {
-    @apply flex items-center justify-center bg-cfo-primary text-white;
-  }
-
-  .auth-header-top-div {
-    @apply flex items-center gap-2 px-6 py-3;
-  }
-
-  .auth-header-brand {
-    @apply flex h-14 items-center border-b border-cfo-border bg-white px-4;
-  }
-
-  .auth-brand-badge {
-    @apply rounded-md border border-cfo-border bg-white px-3 py-1 text-sm font-semibold text-cfo-primary;
-  }
-
-  .auth-main {
-    @apply grid flex-1 place-items-center px-4 py-10;
-  }
-
-  .auth-card {
-    @apply w-full max-w-[430px] rounded-2xl border border-cfo-border bg-white px-6 py-7 shadow-[0_10px_30px_rgba(0,0,0,0.08)];
-  }
-
-  .auth-card-divider {
-    @apply my-5 border-t border-cfo-border;
-  }
-
-  .auth-nav {
-    @apply mb-6 text-center;
-  }
-
-  .auth-nav-icon {
-    @apply mx-auto mb-3 grid h-10 w-10 place-items-center rounded-xl bg-cfo-primary text-lg text-white;
-  }
-
-  .auth-nav-title {
-    @apply text-2xl font-semibold text-slate-900;
-  }
-
-  .auth-nav-subtitle {
-    @apply mt-1 text-sm text-cfo-muted;
-  }
-
-  .auth-label {
-    @apply text-[11px] font-semibold tracking-wide text-slate-600 uppercase;
-  }
-
-  .auth-input {
-    @apply mt-1 w-full rounded-lg border border-cfo-border bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary focus:ring-2 focus:ring-[#f6d8da];
-  }
-
-  .auth-submit {
-    @apply mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cfo-primary-dark disabled:cursor-not-allowed disabled:opacity-70;
-  }
-
-  .auth-link {
-    @apply text-xs font-medium text-cfo-primary hover:underline;
-  }
-
-  .auth-separator {
-    @apply my-5 flex items-center gap-3 text-xs uppercase tracking-wide text-slate-400;
-  }
-
-  .auth-separator::before,
-  .auth-separator::after {
-    content: '';
-    @apply h-px flex-1 bg-cfo-border;
-  }
-
-  .auth-secondary-actions {
-    @apply grid gap-2;
-  }
-
-  .auth-secondary-button {
-    @apply flex w-full items-center justify-between rounded-xl border border-cfo-border px-4 py-3 text-left transition hover:bg-slate-50;
-  }
-
-  .auth-secondary-content {
-    @apply flex items-start gap-3;
-  }
-
-  .auth-secondary-icon {
-    @apply mt-0.5 text-base text-cfo-primary;
-  }
-
-  .auth-secondary-title {
-    @apply text-lg font-semibold text-slate-800;
-  }
-
-  .auth-secondary-description {
-    @apply text-sm text-slate-400;
-  }
-
-  .auth-secondary-chevron {
-    @apply text-lg leading-none text-slate-300;
-  }
-
-  .auth-system-footer {
-    @apply border-t border-[#8c0f14] bg-cfo-primary px-4 py-3 text-center text-[10px] leading-relaxed text-white;
-  }
-
-  .auth-system-footer-title {
-    @apply text-[11px] font-semibold;
-  }
-
-  .auth-system-footer-detail {
-    @apply opacity-90;
   }
 }

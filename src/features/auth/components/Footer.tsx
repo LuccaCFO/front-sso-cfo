@@ -1,13 +1,13 @@
 export function Footer() {
   return (
-    <footer className="auth-system-footer">
-      <p className="auth-system-footer-title">
+    <footer className="border-t border-[#8c0f14] bg-cfo-primary px-4 py-3 text-center text-[10px] leading-relaxed text-white">
+      <p className="text-[11px] font-semibold">
         © 2026 CFO - Conselho Federal de Odontologia
       </p>
-      <p className="auth-system-footer-detail">
+      <p className="opacity-90">
         Lote 2, Quadra CA-7, Centro de Atividades do Setor de Habitacoes Individuais Norte, Brasilia - DF, CEP: 71.503-507
       </p>
-      <p className="auth-system-footer-detail">Atendimento: Segunda a sexta, 08:00 as 17:00</p>
+      <p className="opacity-90">Atendimento: Segunda a sexta, 08:00 as 17:00</p>
     </footer>
   )
 }
