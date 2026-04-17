@@ -49,7 +49,7 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
           type="email"
           autoComplete="email"
           placeholder="Digite seu e-mail"
-          className="mt-1 w-full rounded-lg border border-cfo-border bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary focus:ring-2 focus:ring-[#f6d8da]"
+          className="mt-1 w-full rounded-lg border border-cfo-border-1 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary"
           {...register('email')}
         />
         {errors.email ? (
@@ -70,9 +70,9 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cfo-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white hover:brightness-110"
       >
-        {isSubmitting ? 'Enviando...' : 'Enviar recuperacao'}
+        {isSubmitting ? 'Enviando...' : 'Enviar código'}
       </button>
 
       <button

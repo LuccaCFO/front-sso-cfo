@@ -9,11 +9,13 @@ export function LoginPage() {
       <Header />
       <main className="grid flex-1 place-items-center px-4 py-10">
         <section
-          className="flex justify-between w-full max-w-[1000px] rounded-2xl border border-cfo-border bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+          className="flex justify-between items-stretch w-full max-w-[1000px] rounded-2xl border border-cfo-border-1 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
           aria-label="Area de autenticacao"
-        >
-          <SecondaryContainer/>
-          <LoginContainer/>
+          >
+        <div className="hidden mc:flex w-full">
+          <SecondaryContainer />
+        </div>
+          <LoginContainer />
         </section>
       </main>
       <Footer />

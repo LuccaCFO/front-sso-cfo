@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { login } from '../services/authService'
 import { loginSchema, type LoginFormData } from '../schemas/login.schema'
+import doorSVG from "../../../assets/images/doorSVG.svg"
 
 type LoginFormProps = {
   onForgotPassword: () => void
@@ -49,7 +50,7 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
           type="email"
           autoComplete="email"
           placeholder="Digite seu e-mail"
-          className="mt-1 w-full rounded-lg border border-cfo-border bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary focus:ring-2 focus:ring-[#f6d8da]"
+          className="mt-1 w-full rounded-lg border border-cfo-border-1 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary"
           {...register('email')}
         />
         {errors.email ? (
@@ -80,7 +81,7 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
           type="password"
           autoComplete="current-password"
           placeholder="Digite sua senha"
-          className="mt-1 w-full rounded-lg border border-cfo-border bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary focus:ring-2 focus:ring-[#f6d8da]"
+          className="mt-1 w-full rounded-lg border border-cfo-border-1 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary"
           {...register('password')}
         />
         {errors.password ? (
@@ -96,15 +97,18 @@ export function LoginForm({ onForgotPassword }: LoginFormProps) {
         </p>
       ) : null}
 
-      {successMessage ? <p className="text-sm text-emerald-700">{successMessage}</p> : null}
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cfo-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        {isSubmitting ? 'Entrando...' : 'Entrar'}
-      </button>
+      {successMessage ? <p className="text-sm text-emerald-700">{successMessage}</p> : null}     
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white hover:brightness-110"
+        >  
+          <div className='flex gap-2 justify-center'>        
+            <img src={doorSVG} alt="Ícone de uma porta"/>
+            <p>{isSubmitting ? "Entrando" : "Entrar"}</p>
+          </div>  
+        </button>
     </form>
   )
 }
+

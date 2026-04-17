@@ -2,16 +2,9 @@
 
 @theme {
   --color-cfo-primary: #9a1417;
-  --color-cfo-primary-dark: #5d0a0c;
-  --color-cfo-border: #e5e7eb;
+  --color-cfo-border-1: #e5e7eb;
   --color-cfo-muted: #6b7280;
-}
-
-@layer utilities {
-  .bg-red-gradient {
-    background: -webkit-linear-gradient(to left, #ffffff, #cda0a3, #9a1417);
-    background: linear-gradient(135deg, #9A1417 0%, #b52528 25%, #CDA0A3 60%, #f0e0e1 80%, #ffffff 100%);
-  }
+  --breakpoint-mc: 890px;
 }
 
 @layer base {
@@ -45,9 +38,18 @@
     vertical-align: baseline;
 }
 
-  button:not(:disabled),
-  a,
-  [role='button'] {
+
+  button {
     cursor: pointer;
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.99);
+      transition: filter 150ms ease;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   }
 }
