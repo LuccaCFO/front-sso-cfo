@@ -10,7 +10,7 @@ export function LoginContainer() {
     return (
         <div className="min-w-full mc:min-w-[50%] px-6 py-7">
           <div className="mb-6 text-center" aria-label="Cabecalho do formulario">
-            <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-xl bg-cfo-primary text-lg text-white" aria-hidden="true">
+            <div className="mx-auto mb-3 grid h-13 w-13 place-items-center rounded-xl bg-cfo-primary text-lg text-white" aria-hidden="true">
              <img src={padlockSVG} />
             </div>
             <h2 className="text-2xl font-semibold text-slate-900">Acesso aos sistemas</h2>

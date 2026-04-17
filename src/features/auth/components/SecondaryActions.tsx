@@ -14,7 +14,7 @@ export function SecondaryActions() {
         <div className="flex gap-3">
           <img src={documentSVG} alt="Ícone de usuário" />
           <div>
-            <strong className="block text-lg font-semibold text-slate-800">Solicitar novo usuario</strong>
+            <strong className="block text-lg font-semibold text-slate-800">Solicitar novo usuário</strong>
             <p className="block text-sm text-slate-400">Primeiro acesso ao sistema</p>
           </div>
         </div>
@@ -28,7 +28,7 @@ export function SecondaryActions() {
         <div className="flex gap-3">
           <img src={userSVG} alt="ícone de documento" />
           <div>
-            <strong className="block text-lg font-semibold text-slate-800">Verificar status da solicitacao</strong>
+            <strong className="block text-lg font-semibold text-slate-800">Verificar status da solicitação</strong>
             <p className="block text-sm text-slate-400">Acompanhe seu pedido de acesso</p>
           </div>
         </div>
