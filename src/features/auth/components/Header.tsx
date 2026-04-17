@@ -26,8 +26,9 @@ export function Header() {
           <span>Acesso restrito a usuário autorizados</span>
         </div>
       </div>
-      <div className="flex">
+      <div className="relative">
         <img src={logoCFO} alt="Brasão do Brasil e logo do CFO" />
+        <h1 className="relative left-2 mc:left-6 top-4 text-3xl">Sistema de <span className="text-cfo-primary">acesso único</span></h1>
       </div>
     </header>
 )
