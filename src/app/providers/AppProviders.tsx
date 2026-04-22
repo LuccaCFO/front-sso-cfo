@@ -1,8 +1,8 @@
-import type { PropsWithChildren } from 'react'
-import '../styles/global.css'
+import type { PropsWithChildren } from "react";
+import "../styles/global.css";
 
-type AppProvidersProps = PropsWithChildren
+type AppProvidersProps = PropsWithChildren;
 
 export function AppProviders({ children }: AppProvidersProps) {
-  return children
+  return children;
 }

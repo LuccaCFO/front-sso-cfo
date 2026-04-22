@@ -1,16 +1,19 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { changePasswordEmailService } from '../services/changePasswordEmailService'
-import { forgotPasswordSchema, type ForgotPasswordData } from '../schemas/forgotPassword.schema'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { changePasswordEmailService } from "../services/changePasswordEmailService";
+import {
+  forgotPasswordSchema,
+  type ForgotPasswordData,
+} from "../schemas/forgotPassword.schema";
 
 type ForgotPasswordFormProps = {
-  onBackToLogin: () => void
-}
+  onBackToLogin: () => void;
+};
 
 export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
-  const [serverError, setServerError] = useState<string | null>(null)
-  const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -19,19 +22,21 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
   } = useForm<ForgotPasswordData>({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
-      email: '',
+      email: "",
     },
-  })
+  });
 
   async function onSubmit(values: ForgotPasswordData) {
-    setServerError(null)
-    setSuccessMessage(null)
+    setServerError(null);
+    setSuccessMessage(null);
 
     try {
-      const response = await changePasswordEmailService(values)
-      setSuccessMessage(`E-mail de recuperacao enviado com sucesso para ${values.email}. Token: ${response.token}.`)
+      const response = await changePasswordEmailService(values);
+      setSuccessMessage(
+        `E-mail de recuperacao enviado com sucesso para ${values.email}. Token: ${response.token}.`,
+      );
     } catch {
-      setServerError('Nao foi possivel enviar o e-mail. Tente novamente.')
+      setServerError("Nao foi possivel enviar o e-mail. Tente novamente.");
     }
   }
 
@@ -50,7 +55,7 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
           autoComplete="email"
           placeholder="Digite seu e-mail"
           className="mt-1 w-full rounded-lg border border-cfo-border-1 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-cfo-primary"
-          {...register('email')}
+          {...register("email")}
         />
         {errors.email ? (
           <p className="text-sm text-red-700" role="alert">
@@ -65,14 +70,16 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
         </p>
       ) : null}
 
-      {successMessage ? <p className="text-sm text-emerald-700">{successMessage}</p> : null}
+      {successMessage ? (
+        <p className="text-sm text-emerald-700">{successMessage}</p>
+      ) : null}
 
       <button
         type="submit"
         disabled={isSubmitting}
         className="mt-2 w-full rounded-lg bg-cfo-primary px-4 py-2.5 text-sm font-semibold text-white hover:brightness-110"
       >
-        {isSubmitting ? 'Enviando...' : 'Enviar código'}
+        {isSubmitting ? "Enviando..." : "Enviar código"}
       </button>
 
       <button
@@ -83,5 +90,5 @@ export function ForgotPasswordForm({ onBackToLogin }: ForgotPasswordFormProps) {
         Voltar para login
       </button>
     </form>
-  )
+  );
 }

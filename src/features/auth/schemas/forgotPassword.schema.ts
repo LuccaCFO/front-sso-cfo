@@ -1,7 +1,7 @@
-import { z } from 'zod'
+import { z } from "zod";
 
 export const forgotPasswordSchema = z.object({
-  email: z.email('Informe um e-mail valido.'),
-})
+  email: z.email("Informe um e-mail valido."),
+});
 
-export type ForgotPasswordData = z.infer<typeof forgotPasswordSchema>
+export type ForgotPasswordData = z.infer<typeof forgotPasswordSchema>;

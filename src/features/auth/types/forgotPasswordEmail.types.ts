@@ -1,9 +1,8 @@
 export type forgotPasswordEmailPayload = {
-    email: string
-  }
-  
-  export type forgotPasswordEmailResponse = {
-    token: string
-    newPassword: string
-  }
-  
+  email: string;
+};
+
+export type forgotPasswordEmailResponse = {
+  token: string;
+  newPassword: string;
+};
